@@ -1,6 +1,6 @@
 # Ghost Numbers Verification Suite
 
-This repository provides an optimized computational engine to verify the existence and properties of "Ghost Numbers" (skipped integers in the factorial-power crossover sequence) as defined in the research paper: *'Ghost Numbers: Skipped Integers in the Factorial-Power Crossover'*.
+This repository provides an optimized computational engine to verify the existence and properties of "Ghost Numbers" (skipped integers in the factorial-power crossover) as defined in our research paper.
 
 ## Overview
 The sequence $C(k)$ is defined by the crossover point where $n! > n^k$. This project implements an $O(1)$ amortized linear scan algorithm to identify non-trivial ghost numbers, verifying the structural laws proven in the paper.
@@ -12,8 +12,7 @@ The sequence $C(k)$ is defined by the crossover point where $n! > n^k$. This pro
 - **Live Monitoring:** Includes progress checkpoints for large-scale computation.
 
 ## How to Run
-1. Ensure you have **Python 3.x** installed.
-2. Clone the repository and navigate to the directory:
+1. Ensure you have Python 3.x installed.
+2. Run the script:
    ```bash
-   git clone [your-repo-link]
-   cd [repo-name]
+   python compute_ghosts.py

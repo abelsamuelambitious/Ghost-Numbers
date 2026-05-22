@@ -4,6 +4,11 @@ This repository provides an optimized computational engine to verify the existen
 
 ## Overview
 The sequence $C(k)$ is defined by the crossover point where $n! > n^k$. This project implements an $O(1)$ amortized linear scan algorithm to identify non-trivial ghost numbers, verifying the structural laws proven in the paper.
+## How to Run
+1. Ensure you have Python 3.x installed.
+2. Run the script:
+   ```bash
+   python compute_ghosts.py
 ## Verification & Reproducibility
 The data presented in Section 5 and Section 7 of the paper was generated using the 
 `Ghosts.py` script provided in this repository. 
@@ -18,9 +23,23 @@ The data presented in Section 5 and Section 7 of the paper was generated using t
 - **Invariant Verification:** Automatically validates the Theorem 4.2 linear invariant ($g_i = a_i + i + 2$) for every result.
 - **Law-Compliant:** Tracks Gap Differences (Theorem 4.1) and milestone convergence ratios (Conjecture 7.1).
 - **Live Monitoring:** Includes progress checkpoints for large-scale computation.
+## Citing this Repository
 
-## How to Run
-1. Ensure you have Python 3.x installed.
-2. Run the script:
-   ```bash
-   python compute_ghosts.py
+If you use this computational engine or the associated data in your research, please cite both the formal paper and this software repository.
+
+**Paper:**
+> Samuel, A. (2026). *Ghost Numbers: Skipped Integers in the Factorial-Power Crossover*. [Insert Journal/Preprint Link if applicable].
+
+**Software:**
+> Samuel, A. (2026). *Ghost Numbers Verification Suite* [Computer software]. GitHub. https://github.com/abelsamuelambitious/Ghost-Numbers
+
+**BibTeX Entry:**
+```bibtex
+@software{Samuel_Ghost_Numbers_2026,
+  author = {Samuel, Abel},
+  title = {Ghost Numbers Verification Suite},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{[https://github.com/abelsamuelambitious/Ghost-Numbers](https://github.com/abelsamuelambitious/Ghost-Numbers)}}
+}

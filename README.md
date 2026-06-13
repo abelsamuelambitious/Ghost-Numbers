@@ -9,7 +9,6 @@ A positive integer $g$ is a **ghost number** if it is skipped by the factorial-p
 ## Repository Structure
 * `scripts/Ghosts.py`: Core algorithm for generating sequences of ghost numbers and verifying the primary counting function $G(x)$ up to $x = 10^{12}$.
 * `scripts/verify_theorem_6_1.py`: Validation script computing fractional drift step deficits ($\varepsilon_m$) for all non-trivial ghost numbers under $100$.
-* `data/theorem_6_1_appendix.txt`: The resulting output dataset used to close the analytic bounds of Theorem 6.1, proving the minimal gap size is exactly 4.
 
 ## Getting Started
 

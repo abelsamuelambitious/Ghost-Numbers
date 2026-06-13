@@ -1,18 +1,24 @@
 # Ghost Numbers Verification Suite
 
-This repository provides an optimized computational engine to verify the existence and properties of "Ghost Numbers" (skipped integers in the factorial-power crossover) as defined in our research paper.
+This repository contains the computational verification engine, datasets, and algorithms accompanying the research paper: 
+**"Ghost numbers: integers skipped by the factorial-power crossover"** (2026).
 
 ## Overview
-The sequence $C(k)$ is defined by the crossover point where $n! > n^k$. This project implements an $O(1)$ amortized linear scan algorithm to identify non-trivial ghost numbers, verifying the structural laws proven in the paper.
+A positive integer $g$ is a **ghost number** if it is skipped by the factorial-power crossover function $C(k) = \min\{n : n! > n^k\}$. This suite provides the computational proofs for the finite base cases detailed in the paper, specifically verifying the bounds where analytic continuous limits do not apply.
 
-## Features
-- **$O(1)$ Performance:** Uses logarithmic state tracking to bypass expensive iterative searches.
-- **Invariant Verification:** Automatically validates the Theorem 4.2 linear invariant ($g_i = a_i + i + 2$) for every result.
-- **Law-Compliant:** Tracks Gap Differences (Theorem 4.1) and milestone convergence ratios (Conjecture 7.1).
-- **Live Monitoring:** Includes progress checkpoints for large-scale computation.
+## Repository Structure
+* `scripts/Ghosts.py`: Core algorithm for generating sequences of ghost numbers and verifying the primary counting function $G(x)$ up to $x = 10^{12}$.
+* `scripts/verify_theorem_6_1.py`: Validation script computing fractional drift step deficits ($\varepsilon_m$) for all non-trivial ghost numbers under $100$.
+* `data/theorem_6_1_appendix.txt`: The resulting output dataset used to close the analytic bounds of Theorem 6.1, proving the minimal gap size is exactly 4.
 
-## How to Run
-1. Ensure you have Python 3.x installed.
-2. Clone the repository and run the script:
-   ```bash
-   python compute_ghosts.py
+## Getting Started
+
+### Prerequisites
+* Python 3.8 or higher
+* Standard library modules (`math`, `sys`)
+
+### Running the Verification Scripts
+
+To execute the core ghost number generation algorithm:
+```bash
+python scripts/Ghosts.py

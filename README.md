@@ -22,6 +22,6 @@ To execute the core ghost number generation algorithm:
 ```bash
 python scripts/Ghosts.py
 ```
-To execute the core ghost number generation algorithm:
+To execute the Theorem 6.1 verification algorithm:
 ```bash
 python scripts/Verify_Theorem_6_1.py

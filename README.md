@@ -21,3 +21,7 @@ A positive integer $g$ is a **ghost number** if it is skipped by the factorial-p
 To execute the core ghost number generation algorithm:
 ```bash
 python scripts/Ghosts.py
+```
+To execute the core ghost number generation algorithm:
+```bash
+python scripts/Verify_Theorem_6_1.py

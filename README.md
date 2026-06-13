@@ -1,6 +1,6 @@
 # Ghost Numbers Verification Suite
 
-This repository contains the computational verification engine, datasets, and algorithms accompanying the research paper: 
+This repository contains the computational verification engines accompanying the research paper: 
 **"Ghost numbers: integers skipped by the factorial-power crossover"** (2026).
 
 ## Overview

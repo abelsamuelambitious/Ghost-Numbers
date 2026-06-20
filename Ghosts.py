@@ -1,7 +1,7 @@
 import math
 import sys
 
-def run_analysis(k_limit):
+def run_alpha_analysis(k_limit):
     curr_n = 3
     log_fact = math.log(1) + math.log(2) + math.log(3)
     log_n = math.log(curr_n)
@@ -16,16 +16,16 @@ def run_analysis(k_limit):
     milestones = []
     E = math.e
     
-    print(f"Starting optimized verification scan up to k={k_limit:,}...")
+    print(f"Starting optimized Alpha Ghosts scan up to k={k_limit:,}...")
     
-    with open("Ghosts.txt", "w", encoding="utf-8") as f:
+    with open("Alpha_Ghosts.txt", "w", encoding="utf-8") as f:
         f.write("===============================================================================================\n")
-        f.write("GHOST NUMBERS VERIFICATION DATA SUITE\n")
-        f.write("Reference Paper: 'Ghost Numbers: Skipped Integers in the Factorial-Power Crossover'\n")
+        f.write("ALPHA GHOST NUMBERS VERIFICATION DATA SUITE\n")
+        f.write("Reference Model: min(n : n! > n^k) | Fixed Exponent Crossover\n")
         f.write("===============================================================================================\n")
         f.write("COLUMN DEFINITIONS & MATHEMATICAL THEOREMS REPLICATED BELOW:\n")
         f.write("• g_i (Ghost)     : The i-th non-trivial integer skipped by the crossover sequence C(k).\n")
-        f.write("• a_i + i + 2     : The Linear Invariant verification value (Theorem 4.2). Must exactly equal g_i.\n")
+        f.write("• a_i + i + 2      : The Linear Invariant verification value (Theorem 4.2). Must exactly equal g_i.\n")
         f.write("• Crossover_k     : The exponent interval (a_i to a_i+1) where the sequence C(k) jumps by 2.\n")
         f.write("• g_Gap (n_gap)   : The distance between consecutive ghosts, defined as n_gap = g_i - g_{i-1}.\n")
         f.write("• a_Gap (k_gap)   : The distance between consecutive lower k-values, defined as k_gap = a_i - a_{i-1}.\n")
@@ -39,13 +39,13 @@ def run_analysis(k_limit):
         f.write("-" * 115 + "\n")
         
         for k in range(2, k_limit + 1):
-            
             while log_fact <= threshold:
                 curr_n += 1
                 log_n = math.log(curr_n)
                 log_fact += log_n
                 threshold = k * log_n
             threshold += log_n
+            
             if curr_n > last_n + 1:
                 k_gap = k - last_jump_k if last_jump_k != 0 else 0
                 lower_k = k - 1
@@ -78,7 +78,7 @@ def run_analysis(k_limit):
             last_n = curr_n
             
             if k % 100000 == 0:
-                print(f"Checkpoint: k = {k:,} | Rows found: {row_i}")
+                print(f"Alpha Checkpoint: k = {k:,} | Rows found: {row_i}")
 
 if __name__ == "__main__":
-    run_analysis(100000)
+    run_alpha_analysis(100000)

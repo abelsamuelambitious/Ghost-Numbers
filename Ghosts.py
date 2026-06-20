@@ -6,6 +6,7 @@ def run_alpha_analysis(k_limit):
     log_fact = math.log(1) + math.log(2) + math.log(3)
     log_n = math.log(curr_n)
     threshold = 2 * log_n
+
     
     last_n = 3
     last_skipped_n = 0

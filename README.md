@@ -1,27 +1,26 @@
 # Ghost Numbers Verification Suite
 
-This repository contains the computational verification engines accompanying the research paper: 
-**"Ghost numbers: integers skipped by the factorial-power crossover"** (2026).
+This repository contains the high-performance computational verification engines accompanying the research paper: 
+**"Ghost Numbers: Skipped Integers in the Factorial-Power Crossover"** (2026).
 
 ## Overview
-A positive integer $g$ is a **ghost number** if it is skipped by the factorial-power crossover function $C(k) = \min\{n : n! > n^k\}$. This suite provides the computational proofs for the finite base cases detailed in the paper, specifically verifying the bounds where analytic continuous limits do not apply.
+
+A positive integer is classified as a **Ghost Number** if it represents an intrinsic "structural skip" or latency hidden within the discrete crossover thresholds between factorial growth and power sequences. This suite splits the verification architecture into two distinct number-theoretic classes:
+
+1. **Alpha Ghosts ($\alpha_i$):** Integers skipped by the fixed-exponent crossover function:
+   $$f_\alpha(k) = \min\{n \in \mathbb{N} : n! > n^k\}$$
+2. **Beta Ghosts ($\beta_i$):** Integers skipped by the base-inversion crossover function:
+   $$f_\beta(k) = \min\{n \in \mathbb{N} : n! > k^n\}$$
+
+This suite serves to computationally validate the finite base cases, invariant linear bounds, and structural gap laws where continuous analytic limits are non-applicable.
+
+---
 
 ## Repository Structure
-* `scripts/Ghosts.py`: Core algorithm for generating sequences of ghost numbers and verifying the primary counting function $G(x)$ up to $x = 10^{12}$.
-* `scripts/verify_theorem_6_1.py`: Validation script computing fractional drift step deficits ($\varepsilon_m$) for all non-trivial ghost numbers under $100$.
 
-## Getting Started
-
-### Prerequisites
-* Python 3.8 or higher
-* Standard library modules (`math`, `sys`)
-
-### Running the Verification Scripts
-
-To execute the core ghost number generation algorithm:
-```bash
-python scripts/Ghosts.py
-```
-To execute the Theorem 6.1 verification algorithm:
-```bash
-python scripts/Verify_Theorem_6_1.py
+```text
+├── scripts/
+│   ├── Alpha_Ghosts.py       # Computes fixed-exponent crossover gaps & validates Theorem 4.1 & 4.2
+│   ├── Beta_Ghosts.py        # Computes base-inversion threshold drops & verifies e-convergence
+│   └── verify_theorem_6_1.py # Validates fractional drift step deficits (\varepsilon_m) for small bounds
+├── README.md

@@ -4,23 +4,23 @@ This repository contains the computational verification engines accompanying the
 **"Ghost Numbers: Skipped Integers in the Factorial-Power Crossover"** (2026).
 
 ## Overview
-This suite provides computational proofs and high-performance verification data for the structural crossover boundaries between factorial growth and power sequences. The framework is split into two distinct classes of latent integers:
+This suite provides the computational verification tools and high-performance generation engines for two distinct classes of latent integers arising from factorial-power crossovers:
 
-* **Alpha Ghosts ($\alpha_i$):** Non-trivial integers skipped by the fixed-exponent crossover function $C_\alpha(k) = \min\{n : n! > n^k\}$. 
-* **Beta Ghosts ($\beta_i$):** Non-trivial integers skipped by the base-inversion threshold function $C_\beta(k) = \min\{n : n! > k^n\}$, which scale asymptotically with Euler's number ($e$).
+* **Alpha Ghosts:** Non-trivial integers skipped by the original crossover sequence defined by $min(n : n! > n^k)$.
+* **Beta Ghosts:** Non-trivial integers skipped by the new inverse threshold crossover sequence defined by $min(n : n! > k^n)$.
 
-This suite provides empirical validation for the finite base cases, gap difference laws, and limiting distribution densities where analytic continuous limits do not apply.
+The scripts evaluate finite base cases, track geometric gap transitions, and compute convergence ratios where analytic continuous limits do not apply.
 
 ## Repository Structure
-* `scripts/Alpha_Ghosts.py`: High-performance engine evaluating the fixed-exponent crossover. Validates the Linear Invariant Property and tracks record-gap milestone transitions.
-* `scripts/Beta_Ghosts.py`: Drift-free engine evaluating the base-inversion threshold using un-accumulated log-gamma validation. Tracks step-delta bounds ($\Delta f(k) \in \{2, 3\}$) and milestone convergence ratios.
-* `scripts/verify_theorem_6_1.py`: Validation script computing fractional drift step deficits ($\varepsilon_m$) for all non-trivial ghost numbers under $100$.
+* `Alpha_Ghosts.py`: High-performance engine evaluating the original $min(n : n! > n^k)$ sequence, verifying the Linear Invariant Property and recording gap milestones.
+* `Beta_Ghosts.py`: High-performance engine evaluating the new $min(n : n! > k^n)$ sequence, using un-accumulated log-gamma calculations to track base crossover shifts and milestone ratios.
+* `verify_theorem_6_1.py`: Validation script computing fractional drift step deficits ($\varepsilon_m$) for all non-trivial ghost numbers under 100.
 
 ## Pre-computed Datasets (Zenodo)
-If you do not want to execute the computation loops locally for large limits ($k \ge 100,000$), the fully generated data suites (`Alpha_Ghosts.txt` and `Beta_Ghosts.txt`) are hosted on Zenodo. 
+For high-limit evaluations ($k \ge 100,000$), the pre-computed data output matrices are available directly via Zenodo if you prefer not to run the computation loops locally:
 
-* **Download Alpha Ghosts Dataset:** [Zenodo Link Pending]
-* **Download Beta Ghosts Dataset:** [Zenodo Link Pending]
+* **Alpha Ghosts Dataset:** [Zenodo Link Pending]
+* **Beta Ghosts Dataset:** [Zenodo Link Pending]
 
 ## Getting Started
 
@@ -30,6 +30,12 @@ If you do not want to execute the computation loops locally for large limits ($k
 
 ### Running the Verification Scripts
 
-To execute the core Alpha Ghost generation loop (Fixed Exponent):
 ```bash
-python scripts/Alpha_Ghosts.py
+# Run Alpha Ghosts analysis
+python Alpha_Ghosts.py
+
+# Run Beta Ghosts analysis
+python Beta_Ghosts.py
+
+# Run fractional drift verification
+python verify_theorem_6_1.py
